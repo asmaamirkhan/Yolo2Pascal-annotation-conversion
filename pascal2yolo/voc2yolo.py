@@ -21,7 +21,9 @@ for file in os.listdir(imgFolderPath):
         
         annotation_no_xml = os.path.splitext(file)[0]
 
-        imagePath = os.path.join(imgFolderPath, annotation_no_xml + ".jpg")
+        image_file = [_file for _file in os.listdir(imgFolderPath) if os.path.splitext(_file)[0]==annotation_no_xml and _file!=file][0]
+
+        imagePath = os.path.join(imgFolderPath, image_file)
 
         print("Image path:", imagePath)
 

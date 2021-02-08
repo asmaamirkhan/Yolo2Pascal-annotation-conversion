@@ -18,8 +18,10 @@ for file in os.listdir(imgFolderPath):
         print("Convert", file)
 
         annotation_no_txt = os.path.splitext(file)[0]
+        
+        image_file = [_file for _file in os.listdir(imgFolderPath) if os.path.splitext(_file)[0]==annotation_no_txt and _file!=file][0]
 
-        imagePath = os.path.join(imgFolderPath, annotation_no_txt + ".jpg")
+        imagePath = os.path.join(imgFolderPath, image_file)
 
         print("Load this image:", imagePath)
 
